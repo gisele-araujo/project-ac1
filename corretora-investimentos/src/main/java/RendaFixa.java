@@ -1,13 +1,13 @@
 public abstract class RendaFixa {
     private Double valorInvestido;
     private Double rentabilidade;
-    private Integer prazoDias;
+    private Integer prazoMes;
     private Double impostoRenda;
 
-    public RendaFixa(Double valorInvestido, Double rentabilidade, Integer prazoDias) {
+    public RendaFixa(Double valorInvestido, Double rentabilidade, Integer prazoMes) {
         this.valorInvestido = valorInvestido;
         this.rentabilidade = rentabilidade;
-        this.prazoDias = prazoDias;
+        this.prazoMes = prazoMes;
         this.impostoRenda = calcImpostoRenda();
     }
 
@@ -17,14 +17,14 @@ public abstract class RendaFixa {
 
     public Double calcImpostoRenda() {
 
-        if(prazoDias < 180) {
+        if(prazoMes < 180) {
             return 22.5;
         }
-        if(prazoDias < 364) {
+        if(prazoMes < 364) {
             return 20.0;
         }
 
-        if(prazoDias <= 720) {
+        if(prazoMes <= 720) {
             return 17.5;
         }
          else {
@@ -48,12 +48,12 @@ public abstract class RendaFixa {
         this.rentabilidade = rentabilidade;
     }
 
-    public Integer getPrazoDias() {
-        return prazoDias;
+    public Integer getPrazoMes() {
+        return prazoMes;
     }
 
-    public void setPrazoDias(Integer prazoDias) {
-        this.prazoDias = prazoDias;
+    public void setPrazoMes(Integer prazoDias) {
+        this.prazoMes = prazoDias;
     }
 
     public Double getImpostoRenda() {
@@ -69,7 +69,7 @@ public abstract class RendaFixa {
         return "RendaFixa{" +
                 "valorInvestido=" + valorInvestido +
                 ", rentabilidade=" + rentabilidade +
-                ", prazoDias=" + prazoDias +
+                ", prazoMes=" + prazoMes +
                 '}';
     }
 }
