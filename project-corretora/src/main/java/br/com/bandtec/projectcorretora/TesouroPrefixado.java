@@ -29,4 +29,11 @@ public class TesouroPrefixado extends TesouroDireto{
     public Double calcDescontos() {
         return super.calcDescontos();
     }
+
+    @Override
+    public String toString() {
+        return "TesouroPrefixado{} " + super.toString();
+    }
 }
+
+
