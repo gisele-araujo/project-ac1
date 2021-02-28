@@ -1,3 +1,5 @@
+package br.com.bandtec.projectcorretora;
+
 public class TesouroIpca extends TesouroDireto{
     /* a rentabilidade deste título é taxa IPCA + rentabilidade pré fixada */
 
@@ -13,8 +15,9 @@ public class TesouroIpca extends TesouroDireto{
         return (this.taxaIpca / 100);
     }
 
+
     @Override
-    public Double simularInvestimento() {
+    public Double calcJuros() {
         Integer mes = 1;
         Double totalAcumulado = getValorInvestido();
         Double jurosCompostos = 00.00;
@@ -26,12 +29,13 @@ public class TesouroIpca extends TesouroDireto{
             mes++;
         }
 
-        return (totalAcumulado + jurosCompostos);
+        return jurosCompostos;
     }
+
 
     @Override
     public Double calcDescontos() {
-        return null;
+        return super.calcDescontos();
     }
 
     public Double getTaxaIpca() {
@@ -49,3 +53,4 @@ public class TesouroIpca extends TesouroDireto{
                 "} " + super.toString();
     }
 }
+

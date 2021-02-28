@@ -1,3 +1,5 @@
+package br.com.bandtec.projectcorretora;
+
 public abstract class RendaFixa {
     private Double valorInvestido;
     private Double rentabilidade;
@@ -8,28 +10,19 @@ public abstract class RendaFixa {
         this.valorInvestido = valorInvestido;
         this.rentabilidade = rentabilidade;
         this.prazoMes = prazoMes;
-        this.impostoRenda = calcImpostoRenda();
+        this.impostoRenda = calcImpostoRenda(prazoMes);
     }
 
-    public abstract Double simularInvestimento();
+    public abstract Double calcJuros();
 
     public abstract Double calcDescontos();
 
-    public Double calcImpostoRenda() {
+    public Double calcImpostoRenda(Integer prazoMes) {
 
-        if(prazoMes < 180) {
-            return 22.5;
-        }
-        if(prazoMes < 364) {
-            return 20.0;
-        }
-
-        if(prazoMes <= 720) {
-            return 17.5;
-        }
-         else {
-             return 15.0;
-        }
+        if(prazoMes < 6) return 22.5;
+        if(prazoMes < 12) return 20.0;
+        if(prazoMes <= 24) return 17.5;
+        else return 15.0;
     }
 
     public Double getValorInvestido() {

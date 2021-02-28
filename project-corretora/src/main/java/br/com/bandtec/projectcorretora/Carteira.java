@@ -1,3 +1,5 @@
+package br.com.bandtec.projectcorretora;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,7 @@ public class Carteira {
         Double total = 0.00;
 
         for (RendaFixa investimento : investimentos) {
-            total += investimento.simularInvestimento();
+            total += investimento.calcJuros();
         }
 
         System.out.println(total);

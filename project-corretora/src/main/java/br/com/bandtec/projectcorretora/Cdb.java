@@ -1,13 +1,15 @@
+package br.com.bandtec.projectcorretora;
+
 public class Cdb extends RendaFixa{
 
     /*
-    *
-    * Diferente do Tesouro Direto, o CDB não possui aportes mensais, apenas aplicação única.
-    * A rentabilidade do CDB tem como referência a taxa CDI, que atualmente está de 1.90% por ano.
-    *
-    * */
+     *
+     * Diferente do Tesouro Direto, o CDB não possui taxa b3 e aportes mensais, apenas desconto de IR e aplicação única.
+     * A rentabilidade do CDB tem como referência a taxa CDI, que atualmente está de 1.90% por ano.
+     *
+     * */
 
-private Double taxaCdi;
+    private Double taxaCdi;
 
     public Cdb(Double valorInvestido, Double rentabilidade, Integer prazoDias) {
         super(valorInvestido, rentabilidade, prazoDias);
@@ -19,23 +21,23 @@ private Double taxaCdi;
     }
 
     @Override
-    public Double simularInvestimento() {
-         Integer mes = 1;
-         Double totalAcumulado = getValorInvestido();
+    public Double calcJuros() {
+        Integer mes = 1;
+        Double jurosCompostos = 00.00;
 
         while( mes <= getPrazoMes()) {
-            totalAcumulado += convertRentabilidadeCdiMes() * totalAcumulado;
+            jurosCompostos += convertRentabilidadeCdiMes() * getValorInvestido();
 
             mes++;
         }
 
-        return totalAcumulado;
+        return jurosCompostos;
     }
 
     @Override
     public Double calcDescontos() {
 
-        return null;
+        return calcJuros() * (calcImpostoRenda(getPrazoMes()) /100);
     }
 
     public Double getTaxaCdi() {

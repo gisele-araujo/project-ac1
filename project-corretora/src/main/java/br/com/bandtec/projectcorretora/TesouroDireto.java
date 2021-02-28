@@ -1,3 +1,5 @@
+package br.com.bandtec.projectcorretora;
+
 public abstract class TesouroDireto extends RendaFixa {
 
     private Double aporteMensal;
@@ -9,10 +11,23 @@ public abstract class TesouroDireto extends RendaFixa {
         this.taxaB3 = 0.25;
     }
 
+
+    public Double calcValorTotalInvestido() {
+        return getValorInvestido() + (getAporteMensal() * getPrazoMes());
+    }
+
     public Double convertRentabilidadeMes() {
         return (getRentabilidade() / 100) / 12;
     }
 
+    @Override
+    public Double calcDescontos() {
+        Double ir = calcJuros() * (calcImpostoRenda(getPrazoMes()) /100);
+
+        Double b3 = (taxaB3 / 100) * (calcValorTotalInvestido() + calcJuros());
+
+        return b3;
+    }
 
     public Double getAporteMensal() {
         return aporteMensal;
@@ -38,3 +53,4 @@ public abstract class TesouroDireto extends RendaFixa {
                 "} " + super.toString();
     }
 }
+

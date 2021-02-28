@@ -1,11 +1,14 @@
+package br.com.bandtec.projectcorretora;
+
 public class TesouroPrefixado extends TesouroDireto{
 
     public TesouroPrefixado(Double valorInvestido, Double rentabilidade, Integer prazoMes, Double aporteMensal) {
         super(valorInvestido, rentabilidade, prazoMes, aporteMensal);
     }
 
+
     @Override
-    public Double simularInvestimento() {
+    public Double calcJuros() {
 
         Integer mes = 1;
         Double totalAcumulado = getValorInvestido();
@@ -16,13 +19,14 @@ public class TesouroPrefixado extends TesouroDireto{
             jurosCompostos += ((totalAcumulado + jurosCompostos) * convertRentabilidadeMes());
 
             mes++;
+
         }
 
-        return (totalAcumulado + jurosCompostos);
+        return jurosCompostos;
     }
 
     @Override
     public Double calcDescontos() {
-        return null;
+        return super.calcDescontos();
     }
 }
