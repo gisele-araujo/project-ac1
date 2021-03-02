@@ -1,5 +1,12 @@
 package br.com.bandtec.projectcorretora;
 
+/*
+*
+* O Tesouro Direto possui vários tipos de investimento, como o Tesouro IPCA+ e Tesouro Prefixado.
+* Ambos possibilitam aportes mensais e possuem uma taxa fixa de 0.25% por ano da B3.
+* Por esse motivo, TesouroDireto é também uma classe abstrata, além de RendaFixa.
+* */
+
 public abstract class TesouroDireto extends RendaFixa {
 
     private Double aporteMensal;

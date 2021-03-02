@@ -1,7 +1,11 @@
 package br.com.bandtec.projectcorretora;
+/*
+ *
+ * a rentabilidade deste título é taxa IPCA (índice da inflação) + rentabilidade pré fixada.
+ * */
 
 public class TesouroIpca extends TesouroDireto{
-    /* a rentabilidade deste título é taxa IPCA + rentabilidade pré fixada */
+
 
     private Double taxaIpca;
 

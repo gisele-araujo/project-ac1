@@ -1,5 +1,13 @@
 package br.com.bandtec.projectcorretora;
 
+/*
+*
+* Eu senti a necessidade de RendaFixa ser uma classe abstrata principalmente pelo motivo das classes filhas
+* (TesouroDireto e Cdb) serem tipos de investimento em Renda fixa que possuem várias características em comum,
+* como valor inicial, rentabilidade, prazo e desconto de imposto de renda.
+*
+* */
+
 public abstract class RendaFixa {
     private Double valorInvestido;
     private Double rentabilidade;

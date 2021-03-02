@@ -1,13 +1,13 @@
 package br.com.bandtec.projectcorretora;
 
-public class Cdb extends RendaFixa{
+/*
+ *
+ * Diferente do Tesouro Direto, o CDB não possui taxa b3 e aportes mensais, apenas desconto de IR e aplicação única.
+ * A rentabilidade do CDB tem como referência a taxa CDI, que atualmente está de 1.90% por ano.
+ *
+ * */
 
-    /*
-     *
-     * Diferente do Tesouro Direto, o CDB não possui taxa b3 e aportes mensais, apenas desconto de IR e aplicação única.
-     * A rentabilidade do CDB tem como referência a taxa CDI, que atualmente está de 1.90% por ano.
-     *
-     * */
+public class Cdb extends RendaFixa{
 
     private Double taxaCdi;
 
