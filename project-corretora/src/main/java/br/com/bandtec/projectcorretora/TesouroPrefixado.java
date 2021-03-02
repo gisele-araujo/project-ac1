@@ -30,6 +30,14 @@ public class TesouroPrefixado extends TesouroDireto{
         return super.calcDescontos();
     }
 
+    public String getSimulacaoInvestimento() {
+        return (String.format("%.2f", simularInvestimento()));
+    }
+
+    public String getTitulo() {
+        return "Tesouro Prefixado";
+    }
+
     @Override
     public String toString() {
         return "TesouroPrefixado{} " + super.toString();

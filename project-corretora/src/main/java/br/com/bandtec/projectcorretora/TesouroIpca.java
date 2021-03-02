@@ -38,12 +38,12 @@ public class TesouroIpca extends TesouroDireto{
         return super.calcDescontos();
     }
 
-    public Double getTaxaIpca() {
-        return taxaIpca;
+    public String getSimulacaoInvestimento() {
+        return (String.format("%.2f", simularInvestimento()));
     }
 
-    public void setTaxaIpca(Double taxaIpca) {
-        this.taxaIpca = taxaIpca;
+    public String getTitulo() {
+        return "Tesouro IPCA+";
     }
 
     @Override

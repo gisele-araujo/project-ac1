@@ -40,12 +40,17 @@ public class Cdb extends RendaFixa{
         return calcJuros() * (calcImpostoRenda(getPrazoMes()) /100);
     }
 
-    public Double getTaxaCdi() {
-        return taxaCdi;
+    @Override
+    public Double simularInvestimento() {
+        return (getValorInvestido() + calcJuros()) - calcDescontos();
     }
 
-    public void setTaxaCdi(Double taxaCdi) {
-        this.taxaCdi = taxaCdi;
+    public String getSimulacaoInvestimento() {
+        return (String.format("%.2f", simularInvestimento()));
+    }
+
+    public String getTitulo() {
+        return "CDB";
     }
 
     @Override

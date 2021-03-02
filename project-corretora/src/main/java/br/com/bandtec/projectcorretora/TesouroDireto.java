@@ -23,27 +23,18 @@ public abstract class TesouroDireto extends RendaFixa {
     @Override
     public Double calcDescontos() {
         Double ir = calcJuros() * (calcImpostoRenda(getPrazoMes()) /100);
+        Double b3 = ((taxaB3 / 100) * (getPrazoMes() / 12)) * (calcValorTotalInvestido() + calcJuros());
 
-        Double b3 = (taxaB3 / 100) * (calcValorTotalInvestido() + calcJuros());
+        return (b3+ir);
+    }
 
-        return b3;
+    @Override
+    public Double simularInvestimento() {
+        return (calcValorTotalInvestido() + calcJuros()) - calcDescontos();
     }
 
     public Double getAporteMensal() {
         return aporteMensal;
-    }
-
-    public void setAporteMensal(Double aporteMensal) {
-
-        this.aporteMensal = aporteMensal;
-    }
-
-    public Double getTaxaB3() {
-        return taxaB3;
-    }
-
-    public void setTaxaB3(Double taxaB3) {
-        this.taxaB3 = taxaB3;
     }
 
     @Override
